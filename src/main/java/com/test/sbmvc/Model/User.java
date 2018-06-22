@@ -27,14 +27,8 @@ public class User {
     @JoinColumn(name = "cart_id",unique = true)
     private Cart cart;
 
-    //property name of the association on the owner side
     @OneToMany(mappedBy = "userId")
     private List<Address> addresses;
-
-    //column in the targeted entity that will be used for the join
-    //@OneToMany
-    //@JoinColumn(name="userId")
-    //private List<Address> addresses;
 
     @OneToMany(mappedBy = "userId")
     private List<Orders> orders;

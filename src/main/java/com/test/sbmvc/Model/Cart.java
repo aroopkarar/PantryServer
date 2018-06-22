@@ -12,17 +12,17 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private Date dateAdded;
+	private Date dateCreated;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "cart_product", joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
 	private Set<Product> products;
 
-	public Date getDateAdded(){
-		return dateAdded;
+	public Date getDateCreated() {
+		return dateCreated;
 	}
-	public void setDateAdded(Date dateAdded){
-		this.dateAdded = dateAdded;
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
 	public int getId(){

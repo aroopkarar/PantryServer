@@ -60,7 +60,7 @@ public class UserController {
         return false;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/saveUser")
+    @RequestMapping(method = RequestMethod.POST, value = "/createUser")
     public User createUser(@RequestBody User user)
     {
         return userService.createUser(user);
