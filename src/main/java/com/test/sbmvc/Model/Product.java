@@ -1,11 +1,8 @@
 package com.test.sbmvc.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 public class Product {
@@ -31,10 +28,6 @@ public class Product {
     private int modifiedBy;
     private Date dateModified;
     private Boolean isActive;
-
-    @ManyToMany(mappedBy = "products")
-    @JsonIgnore
-    private Set<Cart> carts;
 
     public String getDescription(){
         return description;
@@ -110,14 +103,6 @@ public class Product {
 
     public int getSubcategoryId(){
         return subcategoryId;
-    }
-
-    public Set<Cart> getCarts(){
-        return carts;
-    }
-
-    public void setCarts(Set<Cart> carts){
-        this.carts = carts;
     }
 
     public void setSubcategoryId(int subcategoryId){

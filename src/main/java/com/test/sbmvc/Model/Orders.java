@@ -1,10 +1,8 @@
 package com.test.sbmvc.Model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
-
-import static javax.persistence.CascadeType.ALL;
 
 @Entity
 public class Orders {
@@ -13,7 +11,7 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderstatus_id")
     private OrderStatus status;
 
@@ -28,13 +26,25 @@ public class Orders {
     @Column(nullable = false)
     private int userId;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paymenttype_id")
     private PaymentType paymentType;
 
-    @OneToOne(cascade = ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id",unique = true)
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public float getShippingCharge(){
         return shippingCharge;

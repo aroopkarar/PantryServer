@@ -17,37 +17,25 @@ public class Address{
     @Column(nullable = false)
     private int userId;
 
-    @OneToOne
-    @JoinColumn(name = "country_id")
-    private Country country;
+    //@OneToOne
+    //@JoinColumn(name = "country_id")
+    @Column(name="country_id")
+    private int country;
 
-    @OneToOne
-    @JoinColumn(name = "state_id")
-    private State state;
+    //@OneToOne
+    //@JoinColumn(name = "state_id")
+    @Column(name="state_id")
+    private int state;
 
-    @OneToOne
-    @JoinColumn(name = "city_id")
-    private City city;
+    //@OneToOne
+    //@JoinColumn(name = "city_id")
+    @Column(name="city_id")
+    private int city;
 
-    @OneToOne
-    @JoinColumn(name = "zip_id")
-    private Zip zip;
-
-    public City getCity(){
-        return city;
-    }
-
-    public void setCity(City city){
-        this.city = city;
-    }
-
-    public Zip getZip(){
-        return zip;
-    }
-
-    public void setZip(Zip zip){
-        this.zip = zip;
-    }
+    //@OneToOne
+    //@JoinColumn(name = "zip_id")
+    @Column(name="zip_id")
+    private int zip;
 
     public int getAddressId(){
         return addressId;
@@ -80,13 +68,6 @@ public class Address{
     public void setUserId(int userId){
         this.userId = userId;
     }
-    public Country getCountry(){
-        return country;
-    }
-
-    public void setCountry(Country country){
-        this.country = country;
-    }
 
     public Date getDateAdded(){
         return dateAdded;
@@ -104,11 +85,36 @@ public class Address{
         this.dateModified = dateModified;
     }
 
-    public State getState() {
+    public int getCountry() {
+        return country;
+    }
+
+    public void setCountry(int country) {
+        this.country = country;
+    }
+
+    public int getState() {
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(int state) {
         this.state = state;
     }
+
+    public int getCity() {
+        return city;
+    }
+
+    public void setCity(int city) {
+        this.city = city;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
 }

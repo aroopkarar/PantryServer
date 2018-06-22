@@ -14,9 +14,8 @@ public class OrderController {
     //Working
     @RequestMapping(value="/createOrder",method=RequestMethod.POST)
     @ResponseBody
-    public Orders createOrder(@RequestBody Orders order)
-    {
-        return orderService.createOrder(order);
+    public Orders createOrder(@RequestBody int cartId) {
+        return orderService.createOrder(cartId);
     }
 
 }

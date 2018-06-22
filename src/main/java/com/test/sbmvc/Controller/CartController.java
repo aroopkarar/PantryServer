@@ -1,12 +1,12 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Model.Product;
+import com.test.sbmvc.Model.Cart;
+import com.test.sbmvc.Model.CartItem;
 import com.test.sbmvc.Service.CartService;
-import com.test.sbmvc.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 public class CartController{
@@ -14,16 +14,12 @@ public class CartController{
     @Autowired
     CartService cartService;
 
-    @Autowired
-    ProductService productService;
-
     //Working fine
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET,value="/addToCart")
     public void addToCart(@RequestParam int productId, @RequestParam int cartId)
     {
-        Product product=productService.getProduct(productId);
-        cartService.addProductToCart(product,cartId);
+        cartService.addProductToCart(productId,cartId);
     }
 
     //Working fine
@@ -31,13 +27,12 @@ public class CartController{
     @RequestMapping(method = RequestMethod.GET,value="/removeFromCart")
     public void removeFromCart(@RequestParam int productId,@RequestParam int cartId)
     {
-        Product product=productService.getProduct(productId);
-        cartService.removeProductFromCart(product,cartId);
+        cartService.removeProductFromCart(productId,cartId);
     }
 
     //Working fine
     @RequestMapping(method = RequestMethod.GET,value="/getAllFromCart")
-    public List<Product> getAllFromCart(@RequestParam int cartId)
+    public Set<CartItem> getAllFromCart(@RequestParam int cartId)
     {
         return cartService.getProductsInCart(cartId);
     }
@@ -57,5 +52,18 @@ public class CartController{
         cartService.clearCart(cartId);
     }
 
+    //Working Fine
+    @RequestMapping(method = RequestMethod.GET,value="/getCart")
+    public Cart getCart(@RequestParam int cartId)
+    {
+        return cartService.getCart(cartId);
+    }
+
+
+    @RequestMapping(value="/updateCartItem")
+    public CartItem updateCartItem(@RequestBody CartItem cartItem)
+    {
+        return cartService.updateCartItem(cartItem);
+    }
 
 }

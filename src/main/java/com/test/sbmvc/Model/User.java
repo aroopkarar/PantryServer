@@ -27,10 +27,10 @@ public class User {
     @JoinColumn(name = "cart_id",unique = true)
     private Cart cart;
 
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(mappedBy = "userId",fetch=FetchType.LAZY)
     private List<Address> addresses;
 
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(mappedBy = "userId",fetch=FetchType.LAZY)
     private List<Orders> orders;
 
     public List<Address> getAddresses(){

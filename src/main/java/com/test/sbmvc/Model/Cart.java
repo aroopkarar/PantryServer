@@ -14,11 +14,18 @@ public class Cart {
 	private int id;
 	private Date dateCreated;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "cart_product", joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-	private Set<Product> products;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<CartItem> cartItems;
 
-	public Date getDateCreated() {
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    public Date getDateCreated() {
 		return dateCreated;
 	}
 	public void setDateCreated(Date dateCreated) {
@@ -31,13 +38,6 @@ public class Cart {
 
 	public void setId(int id){
 		this.id = id;
-	}
-
-	public Set<Product> getProducts(){
-		return products;
-	}
-	public void setProducts(Set<Product> products){
-		this.products = products;
 	}
 
 }

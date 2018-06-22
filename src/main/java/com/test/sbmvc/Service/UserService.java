@@ -6,11 +6,9 @@ import com.test.sbmvc.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -24,7 +22,7 @@ public class UserService {
     }
 
     public List<User> getUsers(){
-        List<User> users= Collections.emptyList();
+        List<User> users= new LinkedList<User>();
        userRepository.findAll().forEach(users::add);
        return users;
     }
@@ -32,8 +30,8 @@ public class UserService {
     public List<Orders> getUserOrders(int userId)
     {
         List<Orders> orders= new LinkedList<>();
-        orders=userRepository.findById(userId).get()
-                .getOrders().stream().sorted(Comparator.comparing(Orders::getDateAdded)).collect(Collectors.toList());
+//        orders=userRepository.findById(userId).get()
+//                .getOrders().stream().sorted(Comparator.comparing(Order::getDateAdded)).collect(Collectors.toList());
         return orders;
     }
 
@@ -43,5 +41,14 @@ public class UserService {
 
     public User createUser(User user) {
         return userRepository.save(user);
+    }
+
+    public User getUserById(int userId) {
+        Optional<User> user=userRepository.findById(userId);
+        if(user.isPresent())
+        {
+            return user.get();
+        }
+        return null;
     }
 }
