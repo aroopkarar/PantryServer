@@ -18,6 +18,9 @@ public class User {
     private String email;
     private String imageUrl;
     private boolean isAdmin;
+    private boolean isEmailVerified;
+    private boolean isMobileVerified;
+    private boolean isFirstLogin;
     private Date dateAdded;
     private Date dateModified;
     private int addedBy;
@@ -29,6 +32,30 @@ public class User {
 
     @OneToMany(mappedBy = "userId",fetch=FetchType.LAZY)
     private List<Address> addresses;
+
+    public boolean isFirstLogin() {
+        return isFirstLogin;
+    }
+
+    public void setFirstLogin(boolean firstLogin) {
+        isFirstLogin = firstLogin;
+    }
+
+    public boolean isEmailVerified() {
+        return isEmailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        isEmailVerified = emailVerified;
+    }
+
+    public boolean isMobileVerified() {
+        return isMobileVerified;
+    }
+
+    public void setMobileVerified(boolean mobileVerified) {
+        isMobileVerified = mobileVerified;
+    }
 
     @OneToMany(mappedBy = "userId",fetch=FetchType.LAZY)
     private List<Orders> orders;
