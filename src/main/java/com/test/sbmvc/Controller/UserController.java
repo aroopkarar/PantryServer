@@ -1,6 +1,7 @@
 package com.test.sbmvc.Controller;
 
 import com.test.sbmvc.CO.ChangePasswordCO;
+import com.test.sbmvc.Model.Address;
 import com.test.sbmvc.Model.User;
 import com.test.sbmvc.Service.UserService;
 import com.test.sbmvc.Service.UtilService;
@@ -84,4 +85,11 @@ public class UserController {
     {
         return userService.changeUserPassword(changePasswordCO);
     }
+
+    @RequestMapping(value="/getUserAddress")
+    public List<Address> getUserAddress(int userId)
+    {
+        return userService.getUserAddresses(userId);
+    }
+
 }

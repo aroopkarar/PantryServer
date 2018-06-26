@@ -1,6 +1,7 @@
 package com.test.sbmvc.Service;
 
 import com.test.sbmvc.CO.ChangePasswordCO;
+import com.test.sbmvc.Model.Address;
 import com.test.sbmvc.Model.Orders;
 import com.test.sbmvc.Model.User;
 import com.test.sbmvc.Repository.UserRepository;
@@ -62,5 +63,15 @@ public class UserService {
             return true;
         }
         return false;
+    }
+
+    public List<Address> getUserAddresses(int userId) {
+        Optional<User> user=userRepository.findById(userId);
+        List<Address> addresses=new LinkedList<>();
+        if(user.isPresent())
+        {
+            addresses=user.get().getAddresses();
+        }
+        return  addresses;
     }
 }
