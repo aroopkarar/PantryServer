@@ -1,5 +1,6 @@
 package com.test.sbmvc.Service;
 
+import com.test.sbmvc.CO.ChangePasswordCO;
 import com.test.sbmvc.Model.Orders;
 import com.test.sbmvc.Model.User;
 import com.test.sbmvc.Repository.UserRepository;
@@ -50,5 +51,16 @@ public class UserService {
             return user.get();
         }
         return null;
+    }
+
+    public Boolean changeUserPassword(ChangePasswordCO changePasswordCO) {
+        User user=userRepository.findByUsername(changePasswordCO.getUsername());
+        if(user!=null)
+        {
+            user.setPassword(changePasswordCO.getPassword());
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 }

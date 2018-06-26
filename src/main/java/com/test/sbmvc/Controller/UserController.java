@@ -1,5 +1,6 @@
 package com.test.sbmvc.Controller;
 
+import com.test.sbmvc.CO.ChangePasswordCO;
 import com.test.sbmvc.Model.User;
 import com.test.sbmvc.Service.UserService;
 import com.test.sbmvc.Service.UtilService;
@@ -76,5 +77,11 @@ public class UserController {
     public User getUserById(@RequestParam(value="userId") int userId )
     {
         return userService.getUserById(userId);
+    }
+
+    @RequestMapping(value="/changeUserPassword")
+    public Boolean changeUserPassword(ChangePasswordCO changePasswordCO)
+    {
+        return userService.changeUserPassword(changePasswordCO);
     }
 }
