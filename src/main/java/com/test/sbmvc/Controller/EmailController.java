@@ -1,6 +1,6 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Service.EmailServiceImpl;
+import com.test.sbmvc.Service.EmailService;
 import com.test.sbmvc.Service.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class EmailController{
     public SimpleMailMessage template;
 
     @Autowired
-    EmailServiceImpl mailservice;
+    EmailService mailservice;
 
     @Autowired
     UtilService utilService;

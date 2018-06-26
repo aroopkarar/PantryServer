@@ -28,12 +28,6 @@ public class CartService{
     //Working Fine
     public void addProductToCart(int productId,int cartId)
     {
-        /*Optional<Cart> cart=cartRepository.findById(cartId);
-        if(cart.isPresent()) {
-            cart.get().getProducts().add(p);
-            cartRepository.save(cart.get());
-            System.out.println("Added to cart successfully");
-        }*/
         Product product=productService.getProduct(productId);
 
         CartItem item = new CartItem();
@@ -54,12 +48,6 @@ public class CartService{
     //Working Fine
     public void removeProductFromCart(int productId, int cartId)
     {
-        /*Optional<Cart> cart=cartRepository.findById(cartId);
-        if(cart.isPresent()) {
-            cart.get().getProducts().remove(p);
-            cartRepository.save(cart.get());
-            System.out.println("Removed from cart successfully");
-        }*/
         CartItem item = null;
 
         Optional<Cart> cart=cartRepository.findById(cartId);
@@ -88,14 +76,6 @@ public class CartService{
     //Working Fine
     public Set<CartItem> getProductsInCart(int cartId)
     {
-       /* List<Product> products = new LinkedList<>();
-        Optional<Cart> cart=cartRepository.findById(cartId);
-        if(cart.isPresent()) {
-        cart.get().getProducts().forEach(products::add);
-
-            return products;
-        }*/
-
         Optional<Cart> cart=cartRepository.findById(cartId);
         System.out.println("Getting All products from Cart: "+cartId);
         if(cart.isPresent())
@@ -111,10 +91,6 @@ public class CartService{
     //Working Fine
     public int getProductsCountInCart(int cartId)
     {
-        /*Optional<Cart> cart=cartRepository.findById(cartId);
-        if(cart.isPresent())
-        return cart.get().getProducts().size();
-        else*/
         Optional<Cart> cart=cartRepository.findById(cartId);
         System.out.println("Getting cart count");
         if(cart.isPresent())
@@ -128,12 +104,6 @@ public class CartService{
     //Working Fine
     public void clearCart(int cartId)
     {
-        /*Optional<Cart> cart=cartRepository.findById(cartId);
-        if(cart.isPresent())
-        cart.get().getProducts().clear();
-        cartRepository.save(cart.get());
-        System.out.println("Removed All from cart successfully");*/
-
         Optional<Cart> cart=cartRepository.findById(cartId);
         if(cart.isPresent())
         {

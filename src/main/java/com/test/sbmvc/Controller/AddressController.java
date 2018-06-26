@@ -13,15 +13,21 @@ public class AddressController {
     @Autowired
     AddressService addressService;
 
-    @GetMapping(value="/getUserAddress")
-    public List<Address> getUserAddress(@RequestParam int userId)
+    @GetMapping(value="/getUserAddresses")
+    public List<Address> getUserAddresses(@RequestParam int userId)
     {
-        return addressService.getUserAddress(userId);
+        return addressService.getUserAddresses(userId);
     }
 
     @PostMapping(value="/addUserAddress")
-    public void addUserAddress(@RequestBody Address address)
-    {
-        addressService.addUserAddress(address);
+    public boolean addUserAddress(@RequestBody Address address) {
+        return addressService.addUserAddress(address);
     }
+
+    @GetMapping(value = "/deleteUserAddress")
+    public boolean deleteUserAddress(@RequestParam int addressId)
+    {
+        return addressService.deleteUserAddress(addressId);
+    }
+
 }

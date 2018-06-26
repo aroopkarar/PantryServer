@@ -8,9 +8,11 @@ import com.test.sbmvc.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -32,8 +34,8 @@ public class UserService {
     public List<Orders> getUserOrders(int userId)
     {
         List<Orders> orders= new LinkedList<>();
-//        orders=userRepository.findById(userId).get()
-//                .getOrders().stream().sorted(Comparator.comparing(Order::getDateAdded)).collect(Collectors.toList());
+        orders=userRepository.findById(userId).get()
+                .getOrders().stream().sorted(Comparator.comparing(Orders::getDateAdded)).collect(Collectors.toList());
         return orders;
     }
 
