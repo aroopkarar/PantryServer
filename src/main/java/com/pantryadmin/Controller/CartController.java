@@ -14,53 +14,49 @@ public class CartController{
     @Autowired
     CartService cartService;
 
-    //Working fine
-    @ResponseBody
     @RequestMapping(method = RequestMethod.GET,value="/addToCart")
-    public void addToCart(@RequestParam int productId, @RequestParam int cartId)
+    public void addToCart(@RequestParam int productId, @RequestParam int cartId) //Working fine
     {
         cartService.addProductToCart(productId,cartId);
     }
 
-    //Working fine
-    @ResponseBody
+
     @RequestMapping(method = RequestMethod.GET,value="/removeFromCart")
-    public void removeFromCart(@RequestParam int productId,@RequestParam int cartId)
+    public void removeFromCart(@RequestParam int productId,@RequestParam int cartId) //Working fine
     {
         cartService.removeProductFromCart(productId,cartId);
     }
 
-    //Working fine
-    @RequestMapping(method = RequestMethod.GET,value="/getAllFromCart")
+
+    @RequestMapping(method = RequestMethod.GET,value="/getAllFromCart") //Working fine
     public Set<CartItem> getAllFromCart(@RequestParam int cartId)
     {
         return cartService.getProductsInCart(cartId);
     }
 
-    //Working fine
-    @RequestMapping(value = "/getCartCount")
+
+    @RequestMapping(value = "/getCartCount") //Working fine
     public int getCartCount(@RequestParam int cartId)
     {
         return cartService.getProductsCountInCart(cartId);
     }
 
-    //Working fine
-    @ResponseBody
-    @RequestMapping(value = "/clearCart")
+
+    @RequestMapping(value = "/clearCart") //Working fine
     public void clearCart(@RequestParam int cartId)
     {
         cartService.clearCart(cartId);
     }
 
-    //Working Fine
-    @RequestMapping(method = RequestMethod.GET,value="/getCart")
+
+    @RequestMapping(method = RequestMethod.GET,value="/getCart") //Working Fine
     public Cart getCart(@RequestParam int cartId)
     {
         return cartService.getCart(cartId);
     }
 
 
-    @RequestMapping(value="/updateCartItem")
+    @RequestMapping(value="/updateCartItem") //Working Fine
     public CartItem updateCartItem(@RequestBody CartItem cartItem)
     {
         return cartService.updateCartItem(cartItem);

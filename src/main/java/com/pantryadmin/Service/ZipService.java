@@ -1,9 +1,9 @@
 package com.pantryadmin.Service;
 
+import com.pantryadmin.Entity.City;
 import com.pantryadmin.Entity.Zip;
 import com.pantryadmin.Repository.CityRepository;
 import com.pantryadmin.Repository.ZipRepository;
-import com.pantryadmin.Entity.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

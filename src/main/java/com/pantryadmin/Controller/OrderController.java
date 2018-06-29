@@ -13,22 +13,18 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    //Working
-    @RequestMapping(value="/createOrder",method=RequestMethod.POST)
-    @ResponseBody
-    public Orders createOrder(@RequestBody int cartId) {
-        return orderService.createOrder(cartId);
+    @RequestMapping(value="/createOrder") //****
+    public Orders createOrder(@RequestParam int userId) {
+        return orderService.createOrder(userId);
     }
 
-    @RequestMapping(value="/getOrder",method=RequestMethod.POST)
-    @ResponseBody
-    public Orders getOrder(@RequestBody int orderId){
+    @RequestMapping(value="/getOrder") //Working fine
+    public Orders getOrder(@RequestParam int orderId){
         return orderService.getOrder(orderId);
     }
 
-    @RequestMapping(value="/getAllOrders",method=RequestMethod.POST)
-    @ResponseBody
-    public List<Orders> getAllOrders(@RequestBody int userId){
+    @RequestMapping(value="/getAllOrders") //Working fine
+    public List<Orders> getAllOrders(@RequestParam int userId){
         return orderService.getAllOrders(userId);
     }
 

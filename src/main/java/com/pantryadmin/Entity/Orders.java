@@ -11,32 +11,43 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderstatus_id")
-    private OrderStatus status;
-
     private Date dateAdded;
     private Date dateModified;
-    private int modifiedBy;
-    private float shippingCharge;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "id",cascade= CascadeType.ALL)
-    private List<OrderLine> orderlines;
+    private int addedBy;
+    private int modifiedBy;
 
     @Column(nullable = false)
     private int userId;
+
+    private float shippingCharge;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "invoice_id")
+    private Invoice invoice;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paymenttype_id")
     private PaymentType paymentType;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "invoice_id")
-    private Invoice invoice;
+    @JoinColumn(name = "orderstatus_id")
+    private OrderStatus status;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id",unique = true)
     private Address address;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "orderId",cascade= CascadeType.ALL)
+    private List<OrderLine> orderlines;
+
+    public int getAddedBy() {
+        return addedBy;
+    }
+
+    public void setAddedBy(int addedBy) {
+        this.addedBy = addedBy;
+    }
 
     public Address getAddress() {
         return address;

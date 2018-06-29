@@ -53,7 +53,7 @@ public class UserController {
            return u;
     }
 
-    @RequestMapping("/getUserByUserName")
+    @RequestMapping("/getUserByUserName") //Working fine
     public Boolean getUserByUserName(@RequestParam(value="userName") String userName )
     {
         User user =userService.getUserByUserName(userName);
@@ -68,26 +68,26 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @RequestMapping(value = "/getUsers",method = RequestMethod.POST)
+    @RequestMapping(value = "/getUsers") //Working fine
     public List<User> getUsers()
     {
         return userService.getUsers();
     }
 
-    @RequestMapping(value = "/getUserById")
+    @RequestMapping(value = "/getUserById") //Working fine
     public User getUserById(@RequestParam(value="userId") int userId )
     {
         return userService.getUserById(userId);
     }
 
-    @RequestMapping(value="/changeUserPassword")
-    public Boolean changeUserPassword(ChangePasswordCO changePasswordCO)
+    @RequestMapping(value="/changeUserPassword") //Working fine
+    public Boolean changeUserPassword(@RequestBody ChangePasswordCO changePasswordCO)
     {
         return userService.changeUserPassword(changePasswordCO);
     }
 
-    @RequestMapping(value="/getUserAddress")
-    public List<Address> getUserAddress(int userId)
+    @RequestMapping(value="/getUserAddress") //Working fine
+    public List<Address> getUserAddress(@RequestParam int userId)
     {
         return userService.getUserAddresses(userId);
     }

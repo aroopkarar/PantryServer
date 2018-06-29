@@ -107,6 +107,9 @@ public class CartService{
         Optional<Cart> cart=cartRepository.findById(cartId);
         if(cart.isPresent())
         {
+            cart.get().getCartItems().forEach(cartItem -> {
+                cartItemRepository.delete(cartItem);
+            });
             cart.get().setCartItems(null);
             cartRepository.save(cart.get());
         }

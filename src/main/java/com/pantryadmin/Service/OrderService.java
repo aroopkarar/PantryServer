@@ -1,13 +1,12 @@
 package com.pantryadmin.Service;
 
+import com.pantryadmin.Entity.Cart;
 import com.pantryadmin.Entity.OrderLine;
-import com.pantryadmin.Repository.CartRepository;
+import com.pantryadmin.Entity.Orders;
+import com.pantryadmin.Entity.User;
 import com.pantryadmin.Repository.OrderLineRepository;
 import com.pantryadmin.Repository.OrderRepository;
 import com.pantryadmin.Repository.UserRepository;
-import com.pantryadmin.Entity.Cart;
-import com.pantryadmin.Entity.Orders;
-import com.pantryadmin.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,33 +25,45 @@ public class OrderService {
     OrderLineRepository orderLineRepository;
 
     @Autowired
-    CartRepository cartRepository;
-
-    @Autowired
     UserRepository userRepository;
 
-    //Working
-    public Orders createOrder(int cartId) {
+    @Autowired
+    CartService cartService;
+
+    public Orders createOrder(int userId) {
 
         Orders order=new Orders();
-        List<OrderLine> orderLines=order.getOrderlines();
-        Optional<Cart> cart=cartRepository.findById(cartId);
-        if(cart.isPresent())
+        Optional<User> user=userRepository.findById(userId);
+        Cart cart=user.get().getCart();
+        if(cart!=null)
         {
-            cart.get().getCartItems().forEach(cartItem->{
+            cart.getCartItems().forEach(cartItem->{
               order.setDateAdded(new Date());
               order.setDateModified(new Date());
+              order.setModifiedBy(userId);
+              order.setAddedBy(userId);
+              order.setUserId(userId);
             });
         }
 
 
         Orders orderCreated=orderRepository.save(order);
-        orderCreated.getOrderlines().stream().forEach(orderline->{
-                 orderline.setOrderId(orderCreated.getId());
-                 orderLineRepository.save(orderline);
+        System.out.println("Order Created");
+        List<OrderLine> orderLines=new LinkedList<>();
+        cart.getCartItems().stream().forEach(cartItem->{
+            OrderLine orderLine=new OrderLine();
+            orderLine.setOrderId(orderCreated.getId());
+            orderLine.setProduct(cartItem.getProduct());
+            orderLine.setQuantity(cartItem.getQuantity());
+            float totalPrice=(cartItem.getQuantity()*cartItem.getProduct().getPrice());
+            orderLine.setTotalPrice(totalPrice);
+            orderLineRepository.save(orderLine);
+            orderLines.add(orderLine);
         });
+        System.out.println("Order Line created");
+        orderCreated.setOrderlines(orderLines);
+        cartService.clearCart(cart.getId());
         return orderCreated;
-
 
     }
 

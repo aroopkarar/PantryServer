@@ -34,7 +34,7 @@ public class EmailController{
     UtilService utilService;
 
     @ResponseBody
-    @RequestMapping("/sendmail")
+    @RequestMapping("/sendmail") //****
     public void sendmail(@RequestParam("to") String to,@RequestParam(value="subject", defaultValue="hi") String subject)
     {
         //String text = template.getText().toString();
@@ -49,7 +49,7 @@ public class EmailController{
     }
 
     @ResponseBody
-    @RequestMapping("/createJWT")
+    @RequestMapping("/createJWT") //Working fine
     public String createJWT(HttpServletRequest request, HttpServletResponse response)
     {
         return utilService.createJWT(null);

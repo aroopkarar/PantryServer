@@ -17,7 +17,7 @@ public class CityController{
         CityService cityService;
 
         @RequestMapping(value="/getAllCitiesByState",method=RequestMethod.GET)
-        public List<City> getAllCitiesByState(@RequestParam int stateId)
+        public List<City> getAllCitiesByState(@RequestParam int stateId) //Working fine
         {
                 return cityService.getCitiesByState(stateId);
         }

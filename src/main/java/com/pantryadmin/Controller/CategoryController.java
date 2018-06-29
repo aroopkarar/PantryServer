@@ -21,39 +21,39 @@ public class CategoryController {
     @Autowired //inject service DI
     CategoryService categoryService;
     
-    @RequestMapping(value = "/getAllCategoryGroups")
+    @RequestMapping(value = "/getAllCategoryGroups") //Working fine
     public List<CategoryGroup> getAllCategoryGroups()
     {
         return categoryService.getAllCategoryGroups();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getCategoryGroupByGroupId")
+    @RequestMapping(method = RequestMethod.GET, value = "/getCategoryGroupByGroupId") //Working fine
     public CategoryGroup getCategoryGroup(@RequestParam(value="groupId") int groupId)
     {
         System.out.println("##groupId Received: "+groupId);
         return categoryService.getCategoryGroup(groupId);
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/getAllCategories")
+    @RequestMapping(method = RequestMethod.GET, value = "/getAllCategories") //Working fine
     public List<Category> getAllCategories()
     {
         return categoryService.getAllCategories();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getAllSubCategories")
+    @RequestMapping(method = RequestMethod.GET, value = "/getAllSubCategories") //Working fine
     public List<Subcategory> getAllSubCategories()
     {
         return categoryService.getAllSubcategories();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getProductsByCategoryGroup")
+    @RequestMapping(method = RequestMethod.GET, value = "/getProductsByCategoryGroup") //Working fine
     public List<Product> getProductsByCategoryGroup(@RequestParam(value="groupId") int groupId)
     {
         System.out.println("##groupId Received: "+groupId);
         return categoryService.getProductsByCategoryGroup(groupId);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getProductsByCategoryGroupAndCategory")
+    @RequestMapping(method = RequestMethod.GET, value = "/getProductsByCategoryGroupAndCategory") //Working fine
     public List<Product> getProductsByCategoryGroupAndCategory(@RequestParam(value="groupId") int groupId,@RequestParam(value="categoryId") int categoryId)
     {
         System.out.println("##groupId Received: "+groupId);

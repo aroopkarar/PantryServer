@@ -13,18 +13,18 @@ public class AddressController {
     @Autowired
     AddressService addressService;
 
-    @GetMapping(value="/getUserAddresses")
+    @GetMapping(value="/getUserAddresses") //Working Fine
     public List<Address> getUserAddresses(@RequestParam int userId)
     {
         return addressService.getUserAddresses(userId);
     }
 
-    @PostMapping(value="/addUserAddress")
+    @PostMapping(value="/addUserAddress") //Working Fine
     public boolean addUserAddress(@RequestBody Address address) {
         return addressService.addUserAddress(address);
     }
 
-    @GetMapping(value = "/deleteUserAddress")
+    @GetMapping(value = "/deleteUserAddress") //Working Fine
     public boolean deleteUserAddress(@RequestParam int addressId)
     {
         return addressService.deleteUserAddress(addressId);

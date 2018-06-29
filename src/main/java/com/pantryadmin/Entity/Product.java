@@ -1,7 +1,6 @@
 package com.pantryadmin.Entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -11,7 +10,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    private BigDecimal price;
+    private float price;
 
     @Column(length=1500)
     private String description;
@@ -126,11 +125,11 @@ public class Product {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

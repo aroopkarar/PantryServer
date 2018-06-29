@@ -15,7 +15,7 @@ public class CountryController{
     @Autowired
     CountryService countryService;
 
-    @RequestMapping(method=RequestMethod.GET,value="/getAllCountries")
+    @RequestMapping(method=RequestMethod.GET,value="/getAllCountries") //Working fine
     public List<Country> getAllCountries()
     {
         return countryService.getAllCountries();

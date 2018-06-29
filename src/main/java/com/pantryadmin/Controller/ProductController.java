@@ -13,22 +13,19 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @ResponseBody
-    @RequestMapping(value = "/getProduct",method = RequestMethod.GET)
+    @RequestMapping(value = "/getProduct",method = RequestMethod.GET)//Working
     public Product getProduct(@RequestParam("productId") int productId)
     {
         return productService.getProduct(productId);
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/getAllProducts",method = RequestMethod.POST)
+    @RequestMapping(value = "/getAllProducts",method = RequestMethod.POST)//Working
     public List<Product> getAllProducts()
     {
         return productService.getAllProducts();
     }
 
-    @ResponseBody
-    @RequestMapping(value="/getProductsByName", method=RequestMethod.POST)
+    @RequestMapping(value="/getProductsByName", method=RequestMethod.POST)//Working
     public List<Product> getProductsByName(@RequestParam("productName") String productName)
     {
         return productService.getProductsNameLike(productName);
