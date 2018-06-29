@@ -13,7 +13,7 @@ public class QuartzJob implements Job {
     @Override
     public void execute(JobExecutionContext arg0) throws JobExecutionException {
         try {
-            log.info("Running Map Cache clearing Job after each 3 minutes");
+            log.info("Running Quartz Job after each 1 second");
             //Task to be done
         } catch (Exception ex) {
             log.error("Exception in QuartzJob Scheduler class: " + ex);
