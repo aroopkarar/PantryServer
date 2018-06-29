@@ -1,7 +1,7 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.City;
-import com.test.sbmvc.Model.Zip;
+import com.test.sbmvc.Entity.City;
+import com.test.sbmvc.Entity.Zip;
 import com.test.sbmvc.Repository.CityRepository;
 import com.test.sbmvc.Repository.ZipRepository;
 import org.springframework.beans.factory.annotation.Autowired;

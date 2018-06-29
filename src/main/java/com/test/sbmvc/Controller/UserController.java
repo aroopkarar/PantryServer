@@ -1,8 +1,8 @@
 package com.test.sbmvc.Controller;
 
 import com.test.sbmvc.CO.ChangePasswordCO;
-import com.test.sbmvc.Model.Address;
-import com.test.sbmvc.Model.User;
+import com.test.sbmvc.Entity.Address;
+import com.test.sbmvc.Entity.User;
 import com.test.sbmvc.Service.UserService;
 import com.test.sbmvc.Service.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
 package com.test.sbmvc.Service;
 
 import com.test.sbmvc.CO.ChangePasswordCO;
-import com.test.sbmvc.Model.Address;
-import com.test.sbmvc.Model.Orders;
-import com.test.sbmvc.Model.User;
+import com.test.sbmvc.Entity.Address;
+import com.test.sbmvc.Entity.Orders;
+import com.test.sbmvc.Entity.User;
 import com.test.sbmvc.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

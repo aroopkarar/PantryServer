@@ -1,6 +1,6 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Model.City;
+import com.test.sbmvc.Entity.City;
 import com.test.sbmvc.Service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

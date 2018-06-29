@@ -1,4 +1,4 @@
-package com.test.sbmvc.Model;
+package com.test.sbmvc.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

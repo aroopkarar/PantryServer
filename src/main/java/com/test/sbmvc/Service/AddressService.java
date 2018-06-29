@@ -1,6 +1,6 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.Address;
+import com.test.sbmvc.Entity.Address;
 import com.test.sbmvc.Repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.Product;
+import com.test.sbmvc.Entity.Product;
 import com.test.sbmvc.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

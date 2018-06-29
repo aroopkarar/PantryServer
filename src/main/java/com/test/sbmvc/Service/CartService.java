@@ -1,8 +1,8 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.Cart;
-import com.test.sbmvc.Model.CartItem;
-import com.test.sbmvc.Model.Product;
+import com.test.sbmvc.Entity.Cart;
+import com.test.sbmvc.Entity.CartItem;
+import com.test.sbmvc.Entity.Product;
 import com.test.sbmvc.Repository.CartItemRepository;
 import com.test.sbmvc.Repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;

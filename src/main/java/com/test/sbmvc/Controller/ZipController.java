@@ -1,6 +1,6 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Model.Zip;
+import com.test.sbmvc.Entity.Zip;
 import com.test.sbmvc.Service.ZipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Model.Orders;
+import com.test.sbmvc.Entity.Orders;
 import com.test.sbmvc.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

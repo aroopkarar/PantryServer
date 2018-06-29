@@ -1,6 +1,6 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Model.State;
+import com.test.sbmvc.Entity.State;
 import com.test.sbmvc.Service.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

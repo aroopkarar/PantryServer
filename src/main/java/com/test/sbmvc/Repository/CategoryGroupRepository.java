@@ -1,7 +1,7 @@
 
 package com.test.sbmvc.Repository;
 
-import com.test.sbmvc.Model.CategoryGroup;
+import com.test.sbmvc.Entity.CategoryGroup;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

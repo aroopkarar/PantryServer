@@ -1,9 +1,9 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.Cart;
-import com.test.sbmvc.Model.OrderLine;
-import com.test.sbmvc.Model.Orders;
-import com.test.sbmvc.Model.User;
+import com.test.sbmvc.Entity.Cart;
+import com.test.sbmvc.Entity.OrderLine;
+import com.test.sbmvc.Entity.Orders;
+import com.test.sbmvc.Entity.User;
 import com.test.sbmvc.Repository.CartRepository;
 import com.test.sbmvc.Repository.OrderLineRepository;
 import com.test.sbmvc.Repository.OrderRepository;

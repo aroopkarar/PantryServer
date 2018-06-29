@@ -1,6 +1,6 @@
 package com.test.sbmvc.Repository;
 
-import com.test.sbmvc.Model.Zip;
+import com.test.sbmvc.Entity.Zip;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

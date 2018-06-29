@@ -1,7 +1,7 @@
 package com.test.sbmvc.Controller;
 
-import com.test.sbmvc.Model.Cart;
-import com.test.sbmvc.Model.CartItem;
+import com.test.sbmvc.Entity.Cart;
+import com.test.sbmvc.Entity.CartItem;
 import com.test.sbmvc.Service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,10 +1,10 @@
 
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.Category;
-import com.test.sbmvc.Model.CategoryGroup;
-import com.test.sbmvc.Model.Product;
-import com.test.sbmvc.Model.Subcategory;
+import com.test.sbmvc.Entity.Category;
+import com.test.sbmvc.Entity.CategoryGroup;
+import com.test.sbmvc.Entity.Product;
+import com.test.sbmvc.Entity.Subcategory;
 import com.test.sbmvc.Repository.CategoryGroupRepository;
 import com.test.sbmvc.Repository.CategoryRepository;
 import com.test.sbmvc.Repository.SubcategoryRepository;

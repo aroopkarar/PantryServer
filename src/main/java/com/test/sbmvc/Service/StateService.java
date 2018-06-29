@@ -1,6 +1,6 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.State;
+import com.test.sbmvc.Entity.State;
 import com.test.sbmvc.Repository.StateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

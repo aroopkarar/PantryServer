@@ -1,5 +1,5 @@
 
-package com.test.sbmvc.Model;
+package com.test.sbmvc.Entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

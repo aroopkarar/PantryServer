@@ -1,6 +1,6 @@
 package com.test.sbmvc.Service;
 
-import com.test.sbmvc.Model.Country;
+import com.test.sbmvc.Entity.Country;
 import com.test.sbmvc.Repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
