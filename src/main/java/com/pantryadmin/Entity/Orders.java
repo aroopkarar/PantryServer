@@ -22,17 +22,14 @@ public class Orders {
 
     private float shippingCharge;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "invoice_id")
-    private Invoice invoice;
+    @Column(name = "invoice_number")
+    private String invoiceNumber;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "paymenttype_id")
-    private PaymentType paymentType;
+    @Column(name = "payment_type")
+    private String paymentType;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderstatus_id")
-    private OrderStatus status;
+    @Column(name = "order_status")
+    private String status;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id",unique = true)
@@ -40,6 +37,14 @@ public class Orders {
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "orderId",cascade= CascadeType.ALL)
     private List<OrderLine> orderlines;
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
 
     public int getAddedBy() {
         return addedBy;
@@ -65,20 +70,12 @@ public class Orders {
         this.shippingCharge = shippingCharge;
     }
 
-    public PaymentType getPaymentType(){
+    public String getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(PaymentType paymentType){
+    public void setPaymentType(String paymentType) {
         this.paymentType = paymentType;
-    }
-
-    public Invoice getInvoice(){
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice){
-        this.invoice = invoice;
     }
 
     public int getUserId(){
@@ -121,11 +118,11 @@ public class Orders {
         this.id = id;
     }
 
-    public OrderStatus getStatus(){
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(OrderStatus status){
+    public void setStatus(String status) {
         this.status = status;
     }
 
