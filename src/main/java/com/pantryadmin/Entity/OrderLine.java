@@ -16,7 +16,7 @@ public class OrderLine {
     private Product product;
 
     private int quantity;
-    private float totalPrice;
+    private double totalPrice;
 
     public int getOrderId(){
         return orderId;
@@ -50,11 +50,11 @@ public class OrderLine {
         this.quantity = quantity;
     }
 
-    public float getTotalPrice(){
+    public double getTotalPrice(){
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice){
+    public void setTotalPrice(double totalPrice){
         this.totalPrice = totalPrice;
     }
 }

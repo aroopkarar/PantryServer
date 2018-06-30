@@ -14,10 +14,14 @@ public class Cart {
 	private int id;
 	private Date dateCreated;
 
-    @OneToMany(cascade = CascadeType.ALL)
+	@OneToOne
+	private User user;
+
+    @OneToMany(mappedBy = "cartId",cascade = CascadeType.ALL)
     private Set<CartItem> cartItems;
 
-    public Set<CartItem> getCartItems() {
+
+	public Set<CartItem> getCartItems() {
         return cartItems;
     }
 

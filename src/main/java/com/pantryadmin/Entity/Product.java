@@ -10,7 +10,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    private float price;
+
+    private double price;
 
     @Column(length=1500)
     private String description;
@@ -125,11 +126,11 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

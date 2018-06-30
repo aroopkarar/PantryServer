@@ -26,8 +26,7 @@ public class User {
     private int addedBy;
     private int modifiedBy;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cart_id",unique = true)
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Cart cart;
 
     @OneToMany(mappedBy = "userId",fetch=FetchType.LAZY)

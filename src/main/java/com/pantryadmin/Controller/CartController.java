@@ -14,15 +14,14 @@ public class CartController{
     @Autowired
     CartService cartService;
 
-    @RequestMapping(method = RequestMethod.GET,value="/addToCart")
-    public void addToCart(@RequestParam int productId, @RequestParam int cartId) //Working fine
+    @RequestMapping(method = RequestMethod.GET,value="/addToCart") //Working Fine
+    public void addToCart(@RequestParam int productId, @RequestParam int cartId)
     {
         cartService.addProductToCart(productId,cartId);
     }
 
-
-    @RequestMapping(method = RequestMethod.GET,value="/removeFromCart")
-    public void removeFromCart(@RequestParam int productId,@RequestParam int cartId) //Working fine
+    @RequestMapping(method = RequestMethod.GET,value="/removeFromCart") //Working Fine
+    public void removeFromCart(@RequestParam int productId,@RequestParam int cartId)
     {
         cartService.removeProductFromCart(productId,cartId);
     }
@@ -35,15 +34,15 @@ public class CartController{
     }
 
 
-    @RequestMapping(value = "/getCartCount") //Working fine
+    @RequestMapping(value = "/getCartCount") //Working Fine
     public int getCartCount(@RequestParam int cartId)
     {
         return cartService.getProductsCountInCart(cartId);
     }
 
 
-    @RequestMapping(value = "/clearCart") //Working fine
-    public void clearCart(@RequestParam int cartId)
+    @RequestMapping(value = "/clearCart")
+    public void clearCart(@RequestParam int cartId) //Working Fine
     {
         cartService.clearCart(cartId);
     }

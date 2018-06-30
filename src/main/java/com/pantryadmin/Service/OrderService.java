@@ -55,7 +55,7 @@ public class OrderService {
             orderLine.setOrderId(orderCreated.getId());
             orderLine.setProduct(cartItem.getProduct());
             orderLine.setQuantity(cartItem.getQuantity());
-            float totalPrice=(cartItem.getQuantity()*cartItem.getProduct().getPrice());
+            double totalPrice= (cartItem.getQuantity()*cartItem.getProduct().getPrice());
             orderLine.setTotalPrice(totalPrice);
             orderLineRepository.save(orderLine);
             orderLines.add(orderLine);

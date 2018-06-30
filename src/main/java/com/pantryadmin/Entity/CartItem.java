@@ -15,6 +15,9 @@ public class CartItem {
     private int quantity;
     private Date dateAdded;
 
+    @Column(nullable = false)
+    private int cartId;
+
     public Long getId() {
         return id;
     }
@@ -33,6 +36,14 @@ public class CartItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public int getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 
     public void setQuantity(int quantity) {

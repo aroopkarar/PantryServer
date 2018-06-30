@@ -1,17 +1,14 @@
 package com.pantryadmin.Service;
 
+import com.pantryadmin.Entity.Cart;
 import com.pantryadmin.Entity.CartItem;
 import com.pantryadmin.Entity.Product;
 import com.pantryadmin.Repository.CartItemRepository;
 import com.pantryadmin.Repository.CartRepository;
-import com.pantryadmin.Entity.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CartService{
@@ -34,6 +31,7 @@ public class CartService{
         item.setDateAdded(new Date());
         item.setProduct(product);
         item.setQuantity(1);
+        item.setCartId(cartId);
 
 
         Optional<Cart> cart=cartRepository.findById(cartId);
@@ -65,7 +63,6 @@ public class CartService{
             }
             if(item!=null) {
                     cart.get().getCartItems().remove(item);
-                    cartRepository.save(cart.get());
                     cartItemRepository.delete(item);
                     System.out.println("Removed from cart successfully");
             }
@@ -107,11 +104,15 @@ public class CartService{
         Optional<Cart> cart=cartRepository.findById(cartId);
         if(cart.isPresent())
         {
-            cart.get().getCartItems().forEach(cartItem -> {
-                cartItemRepository.delete(cartItem);
-            });
-            cart.get().setCartItems(null);
-            cartRepository.save(cart.get());
+            Iterator<CartItem> it=cart.get().getCartItems().iterator();
+            Set<CartItem> cartItems=new HashSet<>();
+            while(it.hasNext()){
+                CartItem cartItem= new CartItem();
+                cartItem=it.next();
+                cartItems.add(cartItem);
+            };
+            cart.get().getCartItems().removeAll(cartItems);
+            cartItemRepository.deleteAll(cartItems);
         }
         System.out.println("Removed All from cart successfully");
     }
