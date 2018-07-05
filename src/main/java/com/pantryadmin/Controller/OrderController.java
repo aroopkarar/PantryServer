@@ -13,7 +13,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value="/createOrder") //****
+    @RequestMapping(value="/createOrder") //Working fine
     public Orders createOrder(@RequestParam int userId) {
         return orderService.createOrder(userId);
     }
